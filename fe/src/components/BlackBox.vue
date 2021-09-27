@@ -1,16 +1,16 @@
 <template>
-    <div class="black-box" :class="hasLine ? 'btml': ''">
+    <div class="black-box" :class="hasLine ? 'btml' : ''">
         <div class="text">
             <slot />
         </div>
     </div>
 </template>
 <script setup lang='ts'>
-import { toRef } from 'vue'
-const props = defineProps({
-    hasLine: Boolean
+
+withDefaults(defineProps<{ hasLine?: boolean }>(), {
+    hasLine: false
 })
-const hasLine = toRef(props, 'hasLine')
+
 </script>
 <style lang="scss" scoped>
 .black-box {

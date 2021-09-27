@@ -1,0 +1,68 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+  color: black;
+//   margin-top: 60px;
+}
+
+body, main {
+    margin: 0;
+    padding: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.serif {
+    font-family: source-han-serif-sc;
+}
+
+.sans {
+    font-family: source-han-sans-cjk-sc;
+}
+
+.fw-exl {
+    font-weight: 200;
+}
+
+.fw-l {
+    font-weight: 300;
+}
+
+.fw-r {
+    font-weight: 400;
+}
+
+.fw-m {
+    font-weight: 500;
+}
+
+.fw-sb {
+    font-weight: 600;
+}
+
+.fw-b {
+    font-weight: 700;
+}
+
+.fw-h {
+    font-weight: 900;
+}
+
+.flex {
+  display: flex;
+}
+

@@ -1,15 +1,24 @@
 <template>
-    <div class="black-box" :class="hasLine ? 'btml' : ''">
-        <div class="text">
+    <div
+        class="black-box"
+        :class="{ 'btml': hasLine }"
+        ref="thisRef"
+    >
+        <div class="text fs-s">
             <slot />
         </div>
     </div>
 </template>
 <script setup lang='ts'>
+import { ref } from "@vue/reactivity"
+import { onMounted } from "@vue/runtime-core"
 
-withDefaults(defineProps<{ hasLine?: boolean }>(), {
-    hasLine: false
+
+const props = withDefaults(defineProps<{ hasLine?: boolean }>(), {
+    hasLine: false,
 })
+
+const thisRef = ref(null)
 
 </script>
 <style lang="scss" scoped>
@@ -34,9 +43,12 @@ withDefaults(defineProps<{ hasLine?: boolean }>(), {
         left: 2.4%;
     }
 
+    &.clickable:hover {
+        cursor: pointer;
+    }
+
     .text {
         font-family: DINCondensed-Bold;
-        font-size: 20px;
         color: #ffffff;
         letter-spacing: 3px;
         position: absolute;

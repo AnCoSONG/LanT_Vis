@@ -66,3 +66,32 @@ body, main {
   display: flex;
 }
 
+.fs-s {
+  font-size: 20px;
+}
+
+.fs-r {
+  font-size: 24px;
+}
+
+.fs-m {
+  font-size: 30px;
+}
+
+.fs-l {
+  font-size: 40px;
+}
+
+@media screen and (max-width: 867px) {
+  .fs-l {
+    font-size: 30px;
+  }
+
+  .fs-s {
+    font-size: 14px;
+  }
+
+  .fs-r {
+    font-size: 20px;
+  }
+}

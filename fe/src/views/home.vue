@@ -54,7 +54,7 @@
 
             <div class="right"></div>
         </div>
-        <div class="demo">
+        <div class="demo" @click="onRouter('002')">
             <div class="left">
                 <BlackBox hasLine>DEMO</BlackBox>
                 <div class="content">
@@ -85,7 +85,8 @@
 import { onMounted } from '@vue/runtime-core'
 import BlackBox from 'comps/BlackBox.vue'
 import Menu from 'comps/Menu.vue'
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const createCharCell = () => {
 
 }
@@ -97,6 +98,10 @@ onMounted(() => {
     // 共60个字
     
 })
+
+const onRouter = (index: string) => {
+    router.push({path: '/procedure', query: { index }})
+}
 
 </script>
 <style lang="scss" scoped>

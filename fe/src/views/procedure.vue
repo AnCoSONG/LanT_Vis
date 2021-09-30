@@ -166,7 +166,6 @@ type SelectorType = {
     select: (index: string) => void
 }
 onMounted(() => {
-    console.log(getAssetsUrl('../assets/cards/001.png'))
     if (route.query.index && selector.value) {
         console.log(route.query, selector.value);
         

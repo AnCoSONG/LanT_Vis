@@ -37,13 +37,13 @@ for (let i = 0; i < 60; i++) {
 	const realId = id_map[thisId];
 
 	const thisText = paragraph[parseInt(realId) - 1];
-	const fixed_pathes = fs.readdirSync("../preprocessing/" + realId);
+	const fixed_pathes = fs.readdirSync("../../../public/preprocessing/" + realId);
 	const thisData = characterJson.filter(
 		(item) => item.Character_id == thisId
 	);
 	let all_fixed = thisData.map((item) => {
 			delete item["Character_id"];
-			item["url"] = `../assets/preprocessing/${realId}/${
+			item["url"] = `/preprocessing/${realId}/${
 				fixed_pathes[parseInt(item.Index) - 1]
 			}`;
 			return item;
@@ -55,22 +55,22 @@ for (let i = 0; i < 60; i++) {
 
 	newJson[realId]["text"] = thisText;
     // for left column
-	newJson[realId]["ori_url"] = `../assets/origins/${realId}.png`;
+	newJson[realId]["ori_url"] = `/origins/${realId}.png`;
 
     // procedure 1
-	newJson[realId]["card_url"] = `../assets/cards/${realId}.png`;
+	newJson[realId]["card_url"] = `/cards/${realId}.png`;
 
     // procedure 2
 	newJson[realId]["preprocessing_urls"] = thisData.map((item) => {
         // console.log(item.Index)
-		return `../assets/preprocessing/${realId}/${
+		return `/preprocessing/${realId}/${
 			fixed_pathes[parseInt(item.Index) - 1]
 		}`;
 	});
     // return
 
     // for left column
-	newJson[realId]["fixed_url"] = `../assets/preprocessing/${realId}/${
+	newJson[realId]["fixed_url"] = `/preprocessing/${realId}/${
 		fixed_pathes[
 			parseInt(
 				thisData.sort((a, b) => {
@@ -82,8 +82,8 @@ for (let i = 0; i < 60; i++) {
 		]
 	}`;
     // for procedure 3
-	newJson[realId]["s1_url"] = `../assets/s1_ori_feature_img/${realId}.png`;
-	newJson[realId]["s3_url"] = `../assets/s3_ori_feature_img/${realId}.png`;
+	newJson[realId]["s1_url"] = `/s1_ori_feature_img/${realId}.png`;
+	newJson[realId]["s3_url"] = `/s3_ori_feature_img/${realId}.png`;
     //procedure 3
     newJson[realId]['evaluation'] = all_fixed.map(item => {
         return {
@@ -91,7 +91,7 @@ for (let i = 0; i < 60; i++) {
             url: item.url,
             s1: {
                 passed: item.S1 == 1,
-                feature_url: `../assets/s1_feature_img/${realId}/${
+                feature_url: `/s1_feature_img/${realId}/${
                     fixed_pathes[parseInt(item.Index) - 1]
                 }`,
                 score: item.S1score,
@@ -110,7 +110,7 @@ for (let i = 0; i < 60; i++) {
             },
             s3: {
                 passed: item.S3 == 1,
-                feature_url: item.S3 == 1 ? `../assets/s3_feature_img/${realId}/${
+                feature_url: item.S3 == 1 ? `/s3_feature_img/${realId}/${
                     fixed_pathes[parseInt(item.Index) - 1]
                 }`: null,
 				score: item.S3score,

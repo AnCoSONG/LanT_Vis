@@ -24,15 +24,15 @@
             <div class="left">
                 <BlackBox style="visibility:hidden;"></BlackBox>
                 <div class="content fs-s sans fw-m">
-                    <a class="author" href="#">韩开鑫</a>
+                    <a class="author" href="mailto:kxhan@zju.edu.cn">韩开鑫</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
                     <a class="author" href="#">尤伟涛</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-                    <a class="author" href="#">邓煌煌</a>
+                    <a class="author" href="#">邓晃煌</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
                     <a class="author" href="#">孙凌云</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-                    <a class="author" href="#">宋晋瑜</a>
+                    <a class="author" href="mailto:songjinyu@zju.edu.cn">宋晋瑜</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
                     <a class="author" href="#">胡子衿</a>
                     <span class="sep">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
@@ -54,7 +54,7 @@
 
             <div class="right"></div>
         </div>
-        <div class="demo" @click="onRouter('002')">
+        <div class="demo" @click="onRouter('001')">
             <div class="left">
                 <BlackBox hasLine>DEMO</BlackBox>
                 <div class="content">
@@ -71,7 +71,8 @@
         </div>
         <div class="moreinfo">
             <div class="text sans fs-r">
-                To Be Continued
+                For More Procedure Detail 
+                <router-link class="href" to="/procedure?index=001">&rarr;</router-link>
             </div>
         </div>
         <div class="footer">
@@ -292,6 +293,28 @@ const onRouter = (index: string) => {
         align-items: center;
 
         .text {
+            user-select: none;
+            .href {
+                text-decoration: none;
+                position: relative;
+                color: black;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    background-color: black;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+                    transition: width 0.3s ease-in-out;
+                }
+                &:hover {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 

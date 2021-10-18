@@ -89,6 +89,7 @@ for (let i = 0; i < 60; i++) {
         return {
             index: item.Index,
             url: item.url,
+			selected: item.url == newJson[realId]['fixed_url'],
             s1: {
                 passed: item.S1 == 1,
                 feature_url: `/s1_feature_img/${realId}/${
@@ -104,7 +105,6 @@ for (let i = 0; i < 60; i++) {
                 passed: item.S2 == 1,
                 score: item.S2score,
                 vis: {
-                    ori: item.S2ori,
                     cur: item.S2feature
                 }
             },
@@ -112,7 +112,7 @@ for (let i = 0; i < 60; i++) {
                 passed: item.S3 == 1,
                 feature_url: item.S3 == 1 ? `/s3_feature_img/${realId}/${
                     fixed_pathes[parseInt(item.Index) - 1]
-                }`: null,
+                }`: item.url,
 				score: item.S3score,
                 vis: {
                     ori: item.S3ori,

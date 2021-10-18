@@ -54,16 +54,32 @@
 
             <div class="right"></div>
         </div>
-        <div class="demo" @click="onRouter('001')">
+        <div class="demo">
             <div class="left">
                 <BlackBox hasLine>DEMO</BlackBox>
                 <div class="content">
                     <div class="origin">
-                        <table id="char_canvas">
-                            <tr>
-                                
-                            </tr>
-                        </table>
+                        <div class="title text fs-m">Broken</div>
+                        <img
+                            src="../assets/broken.png"
+                            alt="待修复图像"
+                            style="object-fit: contain;width: 100%; height: auto;display: block;"
+                        />
+                    </div>
+                    <div class="arrow">
+                        <img
+                            src="../assets/right1.png"
+                            alt="right arrow"
+                            style="width: 40%;  object-fit: contain; display: block; "
+                        />
+                    </div>
+                    <div class="fixed">
+                        <div class="title text fs-m">Restored</div>
+                        <img
+                            src="../assets/fixed.png"
+                            alt="修复图像"
+                            style="object-fit: contain; width: 100%; display: block;"
+                        />
                     </div>
                 </div>
             </div>
@@ -71,14 +87,12 @@
         </div>
         <div class="moreinfo">
             <div class="text sans fs-r">
-                For More Procedure Detail 
+                For More Procedure Detail
                 <router-link class="href" to="/procedure?index=001">&rarr;</router-link>
             </div>
         </div>
         <div class="footer">
-            <div class="text sans fs-r">
-                INLAB @ 2021
-            </div>
+            <div class="text sans fs-r">INLAB @ 2021</div>
         </div>
     </div>
 </template>
@@ -97,11 +111,11 @@ const createTable = () => {
 }
 onMounted(() => {
     // 共60个字
-    
+
 })
 
 const onRouter = (index: string) => {
-    router.push({path: '/procedure', query: { index }})
+    router.push({ path: '/procedure', query: { index } })
 }
 
 </script>
@@ -263,17 +277,59 @@ const onRouter = (index: string) => {
             .content {
                 display: flex;
                 flex-flow: nowrap row;
-                justify-content: flex-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
                 flex: 1;
+                width: calc(80vw - 15px);
+                box-sizing: border-box;
+                // border: 2px solid #000;
+                background: #eee;
+                padding: 40px 60px;
+                position: relative;
 
-                .origin {
-                    width: calc(80vw - 15px);
-                    max-width: 100%;
-                    height: 80vh;
+                .origin,
+                .fixed {
+                    width: 45%;
                     box-sizing: border-box;
-                    border: 2px solid #000;
-                    overflow: scroll;
+                    display: flex;
+                    flex-flow: nowrap column;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    .title {
+                        padding-bottom: 5px;
+                        font-family: DINCondensed-Bold;
+                        user-select: none;
+                        position: relative;
+                        // font-weight: 800;
+                        margin-bottom: 15px;
+
+                        &:after {
+                            content: "";
+                            background-color: black;
+                            width: 100%;
+                            height: 4px;
+                            position: absolute;
+                            bottom: 0px;
+                            left: 0px;
+                        }
+                    }
+                    img {
+                        border: 2px solid #000;
+                        box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.1);
+                    }
+                }
+
+                .arrow {
+                    width: 10%;
+                    // flex: 1;
+                    // border: 2px solid #111;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-flow: nowrap row;
+                    justify-content: center;
+                    align-items: center;
+                    // height: 1000px;
                 }
             }
         }

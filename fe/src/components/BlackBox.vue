@@ -49,6 +49,7 @@ const thisRef = ref(null)
 
     .text {
         font-family: DINCondensed-Bold;
+        // font-weight: 800;
         color: #ffffff;
         letter-spacing: 3px;
         position: absolute;

@@ -7,6 +7,35 @@
 //   margin-top: 60px;
 }
 
+// @font-face {
+//   font-family: 'DIN';
+//   font-weight: 800;
+//   src: url(../assets/din-condensed/DIN-Bold.ttf);
+// }
+
+// @font-face {
+//   font-family: 'DIN';
+//   font-weight: 500;
+//   src: url(../assets/din-condensed/DIN-Medium.ttf);
+// }
+
+// @font-face {
+//   font-family: 'DIN';
+//   font-weight: 400;
+//   src: url(../assets/din-condensed/DIN-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: 'DIN';
+//   font-weight: 300;
+//   src: url(../assets/din-condensed/DIN-Light.ttf);
+// }
+
+@font-face {
+  font-family: 'DINCondensed-Bold';
+  src: url(../assets/DIN-Condensed-Bold-2.ttf);
+}
+
 body, main {
     margin: 0;
     padding: 0;

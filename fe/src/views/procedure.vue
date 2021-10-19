@@ -68,7 +68,20 @@
                         quote="Distributes cards to the calligraphy master and collect them to get high quality data."
                     />
                     <div class="content">
-                        <img :src="cardImgUrl" alt style="height: 100%; object-fit: contain;" />
+                        <div class="origin_box">
+                            <div class="title text fs-b">ORIGIN</div>
+                            <img
+                                :src="cardImgUrl"
+                                alt
+                                style="height: 300px; object-fit: contain;display: block;"
+                            />
+                        </div>
+                        <div class="collected_imgs_box" v-if="true">
+                            <div class="title text fs-b">COLLECTION</div>
+                            <div class="box">
+                                <img :src="item" v-for="(item, index) in cardsImgUrl" :key="index" />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="p2">
@@ -127,9 +140,8 @@
                                 >S3 Feature</div>
                             </div>
                         </div>
-                        <blockquote
-                            class="quote fs-s"
-                        >Distributes cards to the calligraphy master and collect them to get high quality data.
+                        <blockquote class="quote fs-s">
+                            Distributes cards to the calligraphy master and collect them to get high quality data.
                             <ul>
                                 <li>S1 Eval means stage 1 evaluation.</li>
                             </ul>
@@ -225,7 +237,7 @@ const onChanged = (payload: string | Event) => {
     tgtImgUrl.value = curData.fixed_url ?? ''
     oriS3evalUrl.value = curData.s3_url ?? ''
     cardImgUrl.value = curData.card_url ?? ''
-    for(let i = 0; i < 12; i ++) {
+    for (let i = 0; i < 12; i++) {
         cardsImgUrl[i] = curData.cards_url[i];
     }
     for (let i = 0; i < 48; i++) {
@@ -561,10 +573,81 @@ const buildOption = (item: any, type: string) => {
             margin-bottom: 30px;
 
             .content {
-                width: 100%;
-                height: 300px;
-                overflow-x: auto;
-                overflow-y: hidden;
+                display: flex;
+                flex-flow: nowrap row;
+                justify-content: flex-start;
+                align-items: center;
+                width: calc(100vw - 350px);
+                height: 100%;
+                overflow: hidden;
+
+                .origin_box {
+                    height: 100%;
+                    margin-right: 20px;
+
+                    .title {
+                        margin-left: 8px;
+                        user-select: none;
+                        width: min-content;
+                        font-family: DINCondensed-Bold;
+                        font-size: 20px;
+                        padding-top: 6px;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        line-height: 18px;
+                        background-color: white;
+                        border: 2px solid #000;
+                    }
+
+                    img {
+                        // width: 300px;
+                    }
+                }
+
+                .collected_imgs_box {
+                    height: 100%;
+                    margin-right: 20px;
+                    display: flex;
+                    flex-flow: nowrap column;
+                    width: calc(100vw - 350px - 424.4px);
+                    justify-content: flex-start;
+                    align-items: flex-start;
+
+                    .title {
+                        margin-left: 8px;
+                        user-select: none;
+                        width: min-content;
+                        font-family: DINCondensed-Bold;
+                        font-size: 20px;
+                        padding-top: 6px;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        line-height: 18px;
+                        background-color: white;
+                        border: 2px solid #000;
+                        margin-bottom: 16px;
+                        transform: translate(-8px);
+                    }
+
+                    .box {
+                        display: flex;
+                        flex-flow: nowrap row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        transform: translateY(-8px);
+                        width: calc(100vw - 350px - 424.4px);
+                        overflow-x: auto;
+                        img {
+                            margin-right: 28px;
+                            box-sizing: border-box;
+                            // box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+                            border: 4px solid;
+                            height: 284px;
+                            object-fit: contain;
+                            display: block;
+                        }
+                    }
+                }
             }
         }
 

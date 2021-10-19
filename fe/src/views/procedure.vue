@@ -208,6 +208,7 @@ const oriS1evalUrl = ref('')
 const oriS3evalUrl = ref('')
 const tgtImgUrl = ref('')
 const cardImgUrl = ref('')
+const cardsImgUrl = reactive(new Array(12).fill(null)) // 收集到卡片
 const preprocessingImgUrls = reactive(new Array(48).fill(null))
 // const s1_eval
 const p3_imgs_pathes = reactive(new Array(48).fill(null))
@@ -224,6 +225,9 @@ const onChanged = (payload: string | Event) => {
     tgtImgUrl.value = curData.fixed_url ?? ''
     oriS3evalUrl.value = curData.s3_url ?? ''
     cardImgUrl.value = curData.card_url ?? ''
+    for(let i = 0; i < 12; i ++) {
+        cardsImgUrl[i] = curData.cards_url[i];
+    }
     for (let i = 0; i < 48; i++) {
         preprocessingImgUrls[i] = curData.preprocessing_urls[i]
         p3_imgs_pathes[i] = curData.preprocessing_urls[i]

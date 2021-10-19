@@ -60,6 +60,13 @@ for (let i = 0; i < 60; i++) {
     // procedure 1
 	newJson[realId]["card_url"] = `/ori_card/${realId}.png`;
 
+	const collected_cards_pathes = fs.readdirSync("../../../public/cards/" + realId)
+
+	newJson[realId]["cards_url"] = collected_cards_pathes.map((item) => {
+		return `/cards/${realId}/${item}`
+	})
+	// cards
+
     // procedure 2
 	newJson[realId]["preprocessing_urls"] = thisData.map((item) => {
         // console.log(item.Index)

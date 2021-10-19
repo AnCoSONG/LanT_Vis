@@ -58,7 +58,7 @@ for (let i = 0; i < 60; i++) {
 	newJson[realId]["ori_url"] = `/origins/${realId}.png`;
 
     // procedure 1
-	newJson[realId]["card_url"] = `/cards/${realId}.png`;
+	newJson[realId]["card_url"] = `/ori_card/${realId}.png`;
 
     // procedure 2
 	newJson[realId]["preprocessing_urls"] = thisData.map((item) => {

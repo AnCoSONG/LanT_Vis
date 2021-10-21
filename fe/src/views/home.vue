@@ -59,7 +59,7 @@
                 <BlackBox hasLine>DEMO</BlackBox>
                 <div class="content">
                     <div class="origin">
-                        <div class="title text fs-m">Broken</div>
+                        <div class="title text fs-m">Damaged</div>
                         <img
                             src="../assets/broken.png"
                             alt="待修复图像"
@@ -90,6 +90,19 @@
                 For More Procedure Detail
                 <router-link class="href" to="/procedure?index=001">&rarr;</router-link>
             </div>
+        </div>
+        <div class="acknowledgement">
+            <div class="left"></div>
+            <div class="content">
+                <div class="title text fs-l" style="margin-bottom: 40px; text-transform: uppercase;font-family: DINCondensed-Bold;">Acknowledgement</div>
+                <b style="margin-bottom: 80px;line-height: 24px;"> Thanks to experts, professors and students who provided valuable experimental data and guidance for Reasoning Lanting project (ranked in no particular order). They are Xianguang Qian, the director of art department of Tai'an and calligraphers and calligraphy lovers, Ziqiang Niu, Bin Wu, Rui Li, Shanshan Wang, Liang Zhang, Juhua Tang, Sheng Huang, Xuayu Song, Haishao Sun, Jieming Wang, Zhong Wang, Zirui Wang, Zhenjie Wang, Zengchao Wang, Zhengan Lu, Weian Li, Wenlin Huang, Chun Wu, Qier Zhang, Zhihong Tang.</b>
+                <div class="title text fs-l serif fw-b" style="margin-bottom: 40px; text-transform: uppercase;">致谢</div>
+                
+                <b
+                    style="line-height: 24px;"
+                >感谢为《推理兰亭》课题提供宝贵实验数据和指导意见的各位专家、老师和同学（排名不分先后）。他们是泰安学院美术系主任钱先广，书法家和书法爱好者牛自强、吴斌、黄文龙、李瑞、王姗姗、张梁、唐菊华、黄生、宋璇毓、孙海哨、王洁敏、王仲、王子睿、王振杰、王增朝、卢峥安、李伟岸、黄雯琳、伍淳、张乞儿、汤志鸿等。</b>
+            </div>
+            <div class="right"></div>
         </div>
         <div class="footer">
             <div class="text sans fs-r">INLAB @ 2021</div>
@@ -248,6 +261,7 @@ const onRouter = (index: string) => {
                 border: 2px solid black;
                 box-sizing: border-box;
                 padding: 20px 20px;
+                // box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, .1);
 
                 .inner_text {
                     word-break: break-all;
@@ -339,6 +353,35 @@ const onRouter = (index: string) => {
         }
     }
 
+    .acknowledgement {
+        width: 100%;
+        display: flex;
+        flex-flow: nowrap row;
+        margin-top: 50px;
+        position: relative;
+        margin-bottom: 100px;
+        .left {
+            width: calc(10vw + 15px);
+        }
+        .content {
+            // height: 1000px;
+            display: flex;
+            width: calc(80vw - 15px);
+            // width: 100%;
+            flex-flow: nowrap column;
+            justify-content: center;
+            align-items: center;
+            // border: 2px solid #000;
+            padding: 100px 200px;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, .1);
+        }
+
+        .right {
+            flex: 1;
+        }
+    }
+
     .moreinfo {
         width: 100%;
         height: 200px;
@@ -354,6 +397,7 @@ const onRouter = (index: string) => {
                 text-decoration: none;
                 position: relative;
                 color: black;
+                // border-left: 1px solid;
                 &::after {
                     content: "";
                     position: absolute;
